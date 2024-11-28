@@ -10,7 +10,7 @@ const ChartTDS = () => {
 
     const [seconds, setSeconds] = React.useState(0);
     
-    const [data, setData] = React.useState([{value: 0, time: 0}]);
+    const [data, setData] = React.useState([]);
 
     React.useEffect(() => {
         const interval = setInterval(() => {

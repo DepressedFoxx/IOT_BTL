@@ -9,7 +9,7 @@ defaults.responsive = true;
 const ChartPH = () => {
     const [second, setSecond] = React.useState(0);
     
-    const [data, setData] = React.useState([{value: 0, time: 0}]);
+    const [data, setData] = React.useState([]);
 
     React.useEffect(() => {
         const interval = setInterval(() => {
@@ -25,7 +25,7 @@ const ChartPH = () => {
         }, 1000);
     
         return () => clearInterval(interval);
-    }, []);
+    }, [second]);
     
 
     return (
