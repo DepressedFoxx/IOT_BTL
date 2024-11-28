@@ -17,7 +17,6 @@ const Dashboard = () => {
             </div>
             <div className="flex gap-4">
                 <WaterCell />
-                <TotalMoneyCell />
             </div>
             <ChartTDS/>
             <ChartPH/>
