@@ -22,14 +22,14 @@ const ChartPH = () => {
                     setSecond(prevSeconds => prevSeconds + 1);
                 })
                 .catch(error => console.error("Error fetching data:", error));
-        }, 1000);
+        }, 10000);
     
         return () => clearInterval(interval);
     }, [second]);
     
 
     return (
-        <div className="w-full h-96 bg-[#2e312e]">
+        <div className="w-full h-96">
             <Line
                 data={{
                     labels: data.map((item) => item.time),
@@ -37,7 +37,7 @@ const ChartPH = () => {
                         {
                             label: "PH",
                             data: data.map((item) => item.value),
-                            borderColor: "white",
+                            borderColor: "#1267FE",
                             backgroundColor: "white",
                         },
                     ],

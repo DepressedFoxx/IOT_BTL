@@ -21,14 +21,14 @@ const ChartTDS = () => {
                     setSeconds(prevSeconds => prevSeconds + 1);
                 })
                 .catch(error => console.error("Error fetching data:", error));
-        }, 1000);
+        }, 10000);
     
         return () => clearInterval(interval);
     }, [seconds]);
     
 
     return (
-        <div className="w-full h-96 bg-[#2e312e]">
+        <div className="w-full h-96 ">
             <Line
                 data={{
                     labels: data.map((item) => item.time),
@@ -36,7 +36,7 @@ const ChartTDS = () => {
                         {
                             label: "TDS",
                             data: data.map((item) => item.value),
-                            borderColor: "white",
+                            borderColor: "blue",
                             backgroundColor: "white",
                         },
                     ],

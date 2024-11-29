@@ -24,9 +24,9 @@ const Dashboard = () => {
     return (
         <div className="space-y-4 px-4">
             <div className="flex justify-between">
-                <span className="text-white text-2xl ml-3">System Overview</span>
+                <span className="text-2xl ml-3">System Overview</span>
                 <div className="flex items-center">
-                    <span className="text-white text-2xl ml-3">Open Vans</span>
+                    <span className="text-2xl ml-3">Open Vans</span>
                     <Switch className="ml-4" onChange={handleOpenVans} />
                 </div>
             </div>

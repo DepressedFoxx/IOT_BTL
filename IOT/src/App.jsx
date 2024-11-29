@@ -6,7 +6,7 @@ import Footer from './layout/footer';
 function App() {
 
   return (
-    <div className="w-screen h-screen bg-[#080c04] overflow-y-scroll p-4">
+    <div className="w-screen bg-[#F2F5FA] h-screen overflow-y-scroll p-4">
       <Header />
       <Content />
       {/* <Footer /> */}
