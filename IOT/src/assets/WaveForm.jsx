@@ -2,7 +2,7 @@ import React from 'react'
 
 export const WaveForm = () => {
   return (
-    <div className="p-4">
+    <div className="">
         <svg 
           viewBox="0 0 61 49" 
           xmlns="http://www.w3.org/2000/svg"

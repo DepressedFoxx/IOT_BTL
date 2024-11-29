@@ -3,7 +3,7 @@ import React from "react";
 
 function SquareIcon() {
   return (
-    <div className="p-4">
+    <div className="">
       <svg 
         width="90" 
         height="90" 
