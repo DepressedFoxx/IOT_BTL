@@ -19,33 +19,33 @@ const WaterCell = () => {
     });
 
     const calculateMoney  = (waterCount) => {
-            // Định nghĩa các mức giá theo bậc thang (VND/m3)
-            const PRICE_LEVEL_1 = 5973;  // 0-10m3
-            const PRICE_LEVEL_2 = 7052;  // 10-20m3
-            const PRICE_LEVEL_3 = 8669;  // 20-30m3
-            const PRICE_LEVEL_4 = 15929; // >30m3
-            let totalMoney = 0;
-            if (waterCount <= 0) {
-                return 0;
-            }
-            // Tính tiền theo từng bậc
-            if (waterCount > 30) {
-                totalMoney += (waterCount - 30) * PRICE_LEVEL_4;
-                waterCount = 30;
-            }
-            if (waterCount > 20) {
-                totalMoney += (waterCount - 20) * PRICE_LEVEL_3;
-                waterCount = 20;
-            }
-            if (waterCount > 10) {
-                totalMoney += (waterCount - 10) * PRICE_LEVEL_2;
-                waterCount = 10;
-            }
-            if (waterCount > 0) {
-                totalMoney += waterCount * PRICE_LEVEL_1;
-            }
-            // Làm tròn đến số nguyên
-            return Math.round(totalMoney).toLocaleString('vi-VN');
+            // Định nghĩa các mức giá theo bậc thang (VND/m3)
+            const PRICE_LEVEL_1 = 5973;  // 0-10m3
+            const PRICE_LEVEL_2 = 7052;  // 10-20m3
+            const PRICE_LEVEL_3 = 8669;  // 20-30m3
+            const PRICE_LEVEL_4 = 15929; // >30m3
+            let totalMoney = 0;
+            if (waterCount <= 0) {
+                return 0;
+            }
+            // Tính tiền theo từng bậc
+            if (waterCount > 30) {
+                totalMoney += (waterCount - 30) * PRICE_LEVEL_4;
+                waterCount = 30;
+            }
+            if (waterCount > 20) {
+                totalMoney += (waterCount - 20) * PRICE_LEVEL_3;
+                waterCount = 20;
+            }
+            if (waterCount > 10) {
+                totalMoney += (waterCount - 10) * PRICE_LEVEL_2;
+                waterCount = 10;
+            }
+            if (waterCount > 0) {
+                totalMoney += waterCount * PRICE_LEVEL_1;
+            }
+            // Làm tròn đến số nguyên
+            return Math.round(totalMoney).toLocaleString('vi-VN');
         }
 
     return (
