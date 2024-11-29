@@ -32,11 +32,11 @@ const ChartPH = () => {
         <div className="w-full h-96">
             <Line
                 data={{
-                    labels: data.map((item) => item.time),
+                    labels: [0, 10, 20, 30, 40, 50, 60],
                     datasets: [
                         {
                             label: "PH",
-                            data: data.map((item) => item.value),
+                            data: [0, 2.6, 3.2, 4, 4.3, 5.4, 7.2],
                             borderColor: "#1267FE",
                             backgroundColor: "white",
                         },

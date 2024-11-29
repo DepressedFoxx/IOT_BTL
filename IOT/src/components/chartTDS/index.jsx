@@ -31,11 +31,11 @@ const ChartTDS = () => {
         <div className="w-full h-96 ">
             <Line
                 data={{
-                    labels: data.map((item) => item.time),
+                    labels: [1, 10, 20, 30, 40, 50, 60, 70, 80, 90],
                     datasets: [
                         {
                             label: "TDS",
-                            data: data.map((item) => item.value),
+                            data: [0, 130, 200, 289, 250, 200, 150, 100, 50, 130],
                             borderColor: "blue",
                             backgroundColor: "white",
                         },
