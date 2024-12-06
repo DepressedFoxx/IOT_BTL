@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Table } from "antd";
 import ModalBill from "./modalBill";
+import axios from "axios";
 
 const Bill = () => {
 
@@ -75,9 +76,9 @@ const Bill = () => {
         }
     ];
 
-    const data = [
+    const [data, setData] = React.useState([
         {
-            key: "1",
+            key: 1,
             date: "01/01/2023",
             waterCount: 9.36,
             amount: calculateMoney(9.36),
@@ -85,7 +86,7 @@ const Bill = () => {
             status: "Paid",
         },
         {   
-            key: "2",
+            key: 2,
             date: "01/02/2023",
             waterCount: 20.36,
             amount: calculateMoney(20.36),
@@ -93,19 +94,40 @@ const Bill = () => {
             status: "Paid",
         },
         {
-            key: "3",
+            key: 3,
             date: "01/03/2023",
             waterCount: 30.36,
             amount: calculateMoney(30.36),
             description: "Water Bill",
             status: "Paid",
         },
-    ];
+    ]);
+
+    const createBill = () => {
+        axios.get("https://blynk.cloud/external/api/get?token=iVlinC-os9hUU-P6fvF5u1CKwRWjQxbE&V3")
+            .then(response => {
+                const value = response.data;
+                const currentDate = new Date();
+                const formattedDate = `${currentDate.getDate().toString().padStart(2, '0')}/${
+                    (currentDate.getMonth() + 1).toString().padStart(2, '0')}/${
+                    currentDate.getFullYear()}`;
+                setData(oldState => [...oldState, { key: oldState.length + 1, date: formattedDate, waterCount: value, amount: calculateMoney(value), description: "Water Bill", status: "Unpaid" }]);
+            })
+            .catch(error => console.error("Error fetching data:", error));
+    }
 
     return (
-        <div>
-            <span className="text-2xl ml-3">List Bill</span>
-            <Table columns={columns} dataSource={data} />
+        <div className="flex-col space-y-4">
+            <div className="flex justify-between">
+                <span className="text-2xl ml-3">List Bill</span>
+                <button 
+                    className="bg-blue-500 py-2 px-4 rounded-full text-white "
+                    onClick={createBill}
+                >
+                    Create Bill
+                </button>
+            </div>
+            <Table columns={columns} dataSource={[...data].reverse()} />
             <ModalBill ref={modalRef}/>
         </div>
     )

@@ -14,11 +14,11 @@ const ChartTDS = () => {
 
     React.useEffect(() => {
         const interval = setInterval(() => {
-            axios.get("https://blynk.cloud/external/api/get?token=VUKDdjF1InBGGWODiGHaS80aRZt__sXR&V1")
+            axios.get("https://blynk.cloud/external/api/get?token=iVlinC-os9hUU-P6fvF5u1CKwRWjQxbE&V1")
                 .then(response => {
                     const value = response.data;
                     setData(oldState => [...oldState, { value, time: seconds }]);
-                    setSeconds(prevSeconds => prevSeconds + 1);
+                    setSeconds(prevSeconds => prevSeconds + 10);
                 })
                 .catch(error => console.error("Error fetching data:", error));
         }, 10000);
@@ -31,11 +31,11 @@ const ChartTDS = () => {
         <div className="w-full h-96 ">
             <Line
                 data={{
-                    labels: [1, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+                    labels: data.map(item => item.time),
                     datasets: [
                         {
                             label: "TDS",
-                            data: [0, 130, 200, 289, 250, 200, 150, 100, 50, 130],
+                            data: data.map(item => item.value),
                             borderColor: "blue",
                             backgroundColor: "white",
                         },

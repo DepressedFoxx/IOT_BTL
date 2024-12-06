@@ -10,12 +10,12 @@ const Dashboard = () => {
     const handleOpenVans = (checked) => {
         if (checked) {
             console.log("Open vans");
-            axios.get("https://blynk.cloud/external/api/update?token=VUKDdjF1InBGGWODiGHaS80aRZt__sXR&V0=1")
+            axios.get("https://blynk.cloud/external/api/update?token=iVlinC-os9hUU-P6fvF5u1CKwRWjQxbE&V0=1")
                 .then(response => console.log("Response:", response))
                 .catch(error => console.error("Error:", error));
         } else {
             console.log("Close vans");
-            axios.get("https://blynk.cloud/external/api/update?token=VUKDdjF1InBGGWODiGHaS80aRZt__sXR&V0=0")
+            axios.get("https://blynk.cloud/external/api/update?token=iVlinC-os9hUU-P6fvF5u1CKwRWjQxbE&V0=0")
                 .then(response => console.log("Response:", response))
                 .catch(error => console.error("Error:", error));
         }

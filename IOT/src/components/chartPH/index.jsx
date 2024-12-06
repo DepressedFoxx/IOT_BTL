@@ -15,11 +15,11 @@ const ChartPH = () => {
         const interval = setInterval(() => {
             console.log("Fetching data...");
             
-            axios.get("https://blynk.cloud/external/api/get?token=VUKDdjF1InBGGWODiGHaS80aRZt__sXR&V2")
+            axios.get("https://blynk.cloud/external/api/get?token=iVlinC-os9hUU-P6fvF5u1CKwRWjQxbE&V2")
                 .then(response => {
                     const value = response.data;
                     setData(oldState => [...oldState, { value, time: second }]);
-                    setSecond(prevSeconds => prevSeconds + 1);
+                    setSecond(prevSeconds => prevSeconds + 10);
                 })
                 .catch(error => console.error("Error fetching data:", error));
         }, 10000);
@@ -32,11 +32,11 @@ const ChartPH = () => {
         <div className="w-full h-96">
             <Line
                 data={{
-                    labels: [0, 10, 20, 30, 40, 50, 60],
+                    labels: data.map(item => item.time),
                     datasets: [
                         {
                             label: "PH",
-                            data: [0, 2.6, 3.2, 4, 4.3, 5.4, 7.2],
+                            data: data.map(item => item.value),
                             borderColor: "#1267FE",
                             backgroundColor: "white",
                         },
